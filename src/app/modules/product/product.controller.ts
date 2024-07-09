@@ -47,9 +47,23 @@ const deleteProduct = catchAsync(async (req, res) => {
   })
 })
 
+const updateProduct = catchAsync(async (req, res) => {
+  const { id } = req.params
+  const payload = req.body
+  const result = await productServices.updateProductIntoDb(id, payload)
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product updated successfully',
+    data: result,
+  })
+})
+
 export const productControllers = {
   createProduct,
   getAllProduct,
   getSingleProduct,
   deleteProduct,
+  updateProduct,
 }
