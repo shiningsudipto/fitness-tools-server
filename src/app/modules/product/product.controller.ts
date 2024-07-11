@@ -15,8 +15,31 @@ const createProduct = catchAsync(async (req, res) => {
   })
 })
 
+export interface ProductFilters {
+  searchTerm?: string
+  categories?: string[]
+  sortByPrice?: 'asc' | 'desc'
+  price?: number
+}
+
 const getAllProduct = catchAsync(async (req, res) => {
-  const result = await Product.find()
+  const { searchTerm, categories, sortByPrice, price } = req.query as Partial<
+    Record<keyof ProductFilters, string>
+  >
+
+  // eslint-disable-next-line prefer-const
+  let filters: ProductFilters = {
+    searchTerm,
+    categories: categories ? categories.split(',') : [],
+    sortByPrice: undefined,
+    price: price ? parseFloat(price) : undefined,
+  }
+
+  if (sortByPrice === 'asc' || sortByPrice === 'desc') {
+    filters.sortByPrice = sortByPrice
+  }
+
+  const result = await productServices.getAllProductFromDB(filters)
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
