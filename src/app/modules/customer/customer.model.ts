@@ -2,6 +2,14 @@
 import { Schema, model } from 'mongoose'
 import { TCustomer } from './customer.interface'
 
+const cartItemSchema = new Schema(
+  {
+    id: { type: String, required: true },
+    quantity: { type: Number, required: true },
+  },
+  { _id: false },
+)
+
 const customerSchema = new Schema<TCustomer>({
   name: {
     type: String,
@@ -11,7 +19,7 @@ const customerSchema = new Schema<TCustomer>({
   email: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
     trim: true,
   },
   phone: {
@@ -24,6 +32,7 @@ const customerSchema = new Schema<TCustomer>({
     required: true,
     trim: true,
   },
+  cartItems: [cartItemSchema],
 })
 
 export const Customer = model<TCustomer>('Customer', customerSchema)
