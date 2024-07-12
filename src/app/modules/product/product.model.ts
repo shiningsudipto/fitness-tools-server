@@ -19,7 +19,7 @@ const productSchema = new Schema<TProduct>(
       trim: true,
     },
     images: {
-      type: [String],
+      type: String,
       required: true,
     },
     category: {

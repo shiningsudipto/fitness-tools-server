@@ -8,6 +8,7 @@ const createProductIntoDb = async (productData: TProduct) => {
 }
 
 const getAllProductFromDB = async (filters: ProductFilters) => {
+  // console.log('filter data:', filters)
   // eslint-disable-next-line prefer-const, @typescript-eslint/no-explicit-any
   let query: Record<string, any> = {}
 
