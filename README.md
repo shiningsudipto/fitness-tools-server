@@ -1,4 +1,4 @@
-# Car Wash Booking System
+# Fitness Equipment and Accessories
 
 ### Live URL: https://assignment-4-ruddy-one.vercel.app/
 
@@ -14,21 +14,17 @@
 
 ### Features
 
-- User Management
-- Role-Based Access Control
-- Service Management
-- Slot Management
+- Product Management
+- Search and Filter
+- Cart Management
 - Booking System
-- Slot Availability
-- Data Validation and Error Handling
-- Security - (Access Token Security, Error Handling)
 
 ## Instructions on how to run this application locally
 
 1. First clone this repository on your device with this command line:
 
 ```
-git clone https://github.com/shiningsudipto/level-2-assignment-3
+git clone https://github.com/shiningsudipto/fitness-tools-server
 ```
 
 2. After cloning the repository install all necessary packages with:
@@ -42,10 +38,6 @@ npm install
 - NODE_ENV
 - PORT
 - DATABASE_URL
-- DATABASE_URL
-- JWT_ACCESS_SECRET
-- JWT_ACCESS_EXPIRES_IN
-- BCRYPT_SALT_ROUNDS
 
 4. After successfully installing all packages open the terminal from this project and run:
 
