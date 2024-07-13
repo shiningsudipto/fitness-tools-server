@@ -62,6 +62,7 @@ const getSingleProduct = catchAsync(async (req, res) => {
 const deleteProduct = catchAsync(async (req, res) => {
   const { id } = req.params
   // console.log('id', id)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const result = await Product.findByIdAndDelete(id)
   sendResponse(res, {
     statusCode: httpStatus.OK,
